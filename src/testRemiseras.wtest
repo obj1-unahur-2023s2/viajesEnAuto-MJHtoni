@@ -1,6 +1,21 @@
+import remiseras.*
+import clientes.*
 
-test "testX" {
+describe "Test de Lucia" {
+	
+	test "No se puede reemplazar a si misma" {
 
-	assert.that(true)
-
+	assert.throwsExceptionWithMessage("No se puede reemplazar a si misma",
+		{lucia.estaReemplazando(lucia)})
+	}
+	
+	test "Se puede reemplazar a Roxana" {
+	
+	assert.doesNotThrowException({lucia.estaReemplazando(roxana)})
+	}
+	
+	test "Reemplazo de Roxana" {
+		lucia.estaReemplazando(roxana)
+		assert.equals(180, lucia.precioViaje(ludmila, 10))
+	}
 }
